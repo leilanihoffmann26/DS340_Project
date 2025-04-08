@@ -9,14 +9,14 @@ from keras.layers import Conv2D,Dropout,Dense,Flatten,Conv2DTranspose,BatchNorma
 import tensorflow as tf
 
 
-# Input files and save results 
-import os
-for dirname, _, filenames in os.walk('/kaggle/input'):
+# Input files and save results
+data_dir = os.path.expanduser("~/Desktop/archive")
+for dirname, _, filenames in os.walk(data_dir):
     for filename in filenames:
         print(os.path.join(dirname, filename))
 
 # Load and preprocess data
-train_data = pd.read_csv('/kaggle/input/fashionmnist/fashion-mnist_train.csv')
+train_data = pd.read_csv('Desktop/archive/fashion-mnist_train.csv')
 X_train = train_data.drop('label',axis=1) # Drop labels
 X_train=X_train.values # Shape is (60000, 784)
 X_train=X_train.reshape(-1,28,28,1) # Reshape to (60000, 28, 28, 1)
