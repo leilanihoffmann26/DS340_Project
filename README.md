@@ -24,6 +24,21 @@ We trained several GAN models, experimented with data augmentation techniques, a
 2. Open the notebooks (`.ipynb`) and run them sequentially:
    - Start with `Augmented_GAN.ipynb` or `Conditional_GAN.ipynb` for training.
    - Use `GAN_FID.ipynb` to calculate FID scores for evaluation.
+     
+    To calculate the FID score manually, run the following command in the SCC terminal:
+
+    ```bash
+    python fid_score.py --true /projectnb/ds340/projects/leilani_hannah_final_project/fid_images_augmented/real_images_fid.npy --fake /projectnb/ds340/projects/leilani_hannah_final_project/fid_images_augmented/fake_images_fid.npy --gpu [GPU_ID]
+    ```
+
+    Replace `[GPU_ID]` with the correct GPU number you are allocated (e.g., 0, 1, etc.).  
+    You can check which GPU you are using with the `nvidia-smi` command or based on your job submission details.
+
+    **File Locations:**
+    - Augmented GAN `.npy` files:  
+      `/projectnb/ds340/projects/leilani_hannah_final_project/fid_images_augmented/`
+    - Standard GAN `.npy` files:  
+      `/projectnb/ds340/projects/leilani_hannah_final_project/fid_images/`
 
 > **Note**: Training GANs can be resource-intensive. Using **GPU acceleration** is highly recommended.
 
@@ -38,8 +53,8 @@ We trained several GAN models, experimented with data augmentation techniques, a
 - Improve conditioning to allow for **multi-attribute generation** (e.g., clothing color, texture).
 
 ## Acknowledgments
-- Fashion-MNIST dataset creators
-- DS340 Professors and TAs
+- [Fashion-MNIST dataset creators](https://www.kaggle.com/code/sayakdasgupta/introduction-to-gans-on-fashion-mnist-dataset)
+- Professor Kevin Gold and TA Abhishek Varshney
 - PyTorch and torchvision open-source communities
 
 
